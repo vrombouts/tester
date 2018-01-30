@@ -1,0 +1,61 @@
+t 50.0 580.0 {report done} s 0 w n {} ne
+p 50.0 225.0 officers 2 n
+p 310.0 140.0 vehicles 1 w
+t 310.0 225.0 {begin patrol} s 0 w n {} ne
+p 475.0 225.0 patrols 0 s
+p 695.0 50.0 {recording incident} 0 n
+t 895.0 50.0 {incident call} n 0 w n {} ne
+t 475.0 50.0 {intervene incident} n 0 w n {} ne
+p 895.0 120.0 clerks 2 s
+t 700.0 120.0 {contact dep} s 0 w n {} ne
+p 555.0 120.0 {handling incident} 0 s
+t 1215.0 120.0 {crime call} n 0 w n {} ne
+p 1215.0 225.0 {recording crime} 0 s
+t 1130.0 225.0 {intervene crime} n 0 w n {} ne
+t 965.0 490.0 arrive n 0 w n {} ne
+p 815.0 490.0 investigation 0 n
+p 815.0 580.0 inspectors 1 n
+p 1130.0 490.0 {patrol wait} 0 s
+p 810.0 415.0 coroners 1 n
+p 400.0 465.0 {writing report} 0 n
+t 310.0 55.0 {stop patrol} n 0 w n {} ne
+t 565.0 415.0 {return office} s 0 w n {} ne
+e vehicles {begin patrol} 1 n
+e officers {begin patrol} 2 sw
+e {begin patrol} patrols 1 n
+e patrols {stop patrol} 1 n
+e {stop patrol} vehicles 1 n
+e {stop patrol} officers 2 e
+e clerks {incident call} 1 n
+e {incident call} {recording incident} 1 n
+e clerks {crime call} 1 n
+e {crime call} {recording crime} 1 n
+e patrols {intervene incident} 1 n
+e {recording incident} {intervene incident} 1 n
+e {intervene incident} {handling incident} 1 n
+e {intervene incident} clerks 1 n
+e {recording crime} {intervene crime} 1 n
+e {intervene crime} {patrol wait} 1 n
+e patrols {intervene crime} 1 n
+e {intervene crime} clerks 1 n
+e clerks {contact dep} 1 n
+e {contact dep} clerks 1 n
+e {handling incident} {contact dep} 1 n
+e {contact dep} patrols 1 n
+e coroners arrive 1 n
+e inspectors arrive 1 n
+e {patrol wait} arrive 1 n
+e arrive investigation 1 n
+e investigation {return office} 1 n
+e {return office} coroners 1 n
+e {return office} officers 1 n
+e {return office} {writing report} 1 n
+e clerks {return office} 1 n
+e {writing report} {report done} 1 n
+e {report done} clerks 1 n
+e {report done} inspectors 1 n
+e {report done} officers 1 n
+e {return office} vehicles 1 n
+h police
+
+
